@@ -1,5 +1,15 @@
-const tasks = ["Limpiar la pieza", "Hacer las compras", "Lavar la ropa"];
-
+const tasks = [
+  "Preparar un desfile de moda",
+  "Cuidar a sus mascotas",
+  "Hacer ejercicio en su gimnasio",
+  "Ir de compras para actualizar su guardarropa",
+  "Estudiar para su próxima aventura",
+  "Ayudar a su comunidad en proyectos voluntarios",
+  "Organizar una fiesta de cumpleaños",
+  "Diseñar ropa y accesorios",
+  "Viajar por el mundo en su jet privado",
+  "Participar en competencias deportivas",
+];
 const taskInput = document.querySelector("#taskInput");
 const addButton = document.querySelector("#addButton");
 const taskList = document.querySelector("#taskList");
