@@ -22,3 +22,4 @@ const showTasks = () => {}
 creamos la funcion removeTask(index)
   eliminamos una tarea del arreglo y actualizamos la vista
 
+Agregamos un elemento para buscar tarea
