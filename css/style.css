@@ -16,18 +16,20 @@ h1 {
 ul {
   list-style: none;
   padding: 0;
+
+  & li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fccad2;
+    color: #fc49a2;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  }
 }
-li {
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fccad2;
-  color: #fc49a2;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-}
+
 input {
   padding: 5px;
   border: 1px solid #ff69b4;

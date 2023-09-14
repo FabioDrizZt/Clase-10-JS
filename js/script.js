@@ -1,14 +1,14 @@
-const tasks = [
-  "Preparar un desfile de moda",
-  "Cuidar a sus mascotas",
-  "Hacer ejercicio en su gimnasio",
-  "Ir de compras para actualizar su guardarropa",
-  "Estudiar para su próxima aventura",
-  "Ayudar a su comunidad en proyectos voluntarios",
-  "Organizar una fiesta de cumpleaños",
-  "Diseñar ropa y accesorios",
-  "Viajar por el mundo en su jet privado",
-  "Participar en competencias deportivas",
+let tasks = [
+  { name: "Preparar un desfile de moda", completed: false },
+  { name: "Cuidar a sus mascotas", completed: false },
+  { name: "Hacer ejercicio en su gimnasio", completed: false },
+  { name: "Ir de compras para actualizar su guardarropa", completed: false },
+  { name: "Estudiar para su próxima aventura", completed: false },
+  { name: "Ayudar a su comunidad en proyectos voluntarios", completed: false },
+  { name: "Organizar una fiesta de cumpleaños", completed: false },
+  { name: "Diseñar ropa y accesorios", completed: false },
+  { name: "Viajar por el mundo en su jet privado", completed: false },
+  { name: "Participar en competencias deportivas", completed: false },
 ];
 const taskInput = document.querySelector("#taskInput");
 const addButton = document.querySelector("#addButton");
@@ -21,7 +21,7 @@ const showTasks = (lista = tasks) => {
     // cargamos la lista de tareas con el array
     const li = document.createElement("li");
     li.innerHTML = `
-      <span>${task}</span>
+      <span>${task.name}</span>
       <div>
         <button onclick="editTask(${index})">🖊</button>
         <button onclick="removeTask(${index})">❌</button>
@@ -47,9 +47,11 @@ const removeTask = (index) => {
 const addTask = () => {
   taskInput.value = taskInput.value.trim();
   if (taskInput.value == "") return alert("Tarea vacia");
-  tasks.push(taskInput.value);
+  tasks.push({ name: taskInput.value, completed: false });
   taskInput.value = "";
   showTasks();
+
+  localStorage.setItem("tareas", JSON.stringify(tasks));
 };
 
 const searchTasks = () => {
@@ -62,4 +64,9 @@ const searchTasks = () => {
 
 addButton.addEventListener("click", addTask);
 searchInput.addEventListener("input", searchTasks);
+const tareasAlmacenadas = localStorage.getItem("tareas");
+if (tareasAlmacenadas) {
+  tasks = JSON.parse(tareasAlmacenadas);
+  console.log(tasks);
+}
 showTasks();
